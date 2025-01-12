@@ -3,8 +3,6 @@
 #include <cmath>
 
 using namespace std;
-
-// Function to calculate dot product of two vectors
 double dot(const vector<double>& vec1, const vector<double>& vec2) {
     double product = 0;
     for (size_t i = 0; i < vec1.size(); ++i) {
@@ -12,8 +10,6 @@ double dot(const vector<double>& vec1, const vector<double>& vec2) {
     }
     return product;
 }
-
-// Function to calculate the Euclidean norm of a vector
 double norm(const vector<double>& vec) {
     double sum = 0;
     for (double element : vec) {
@@ -171,11 +167,6 @@ vector<vector<double>> transposeMatrix(const vector<vector<double>>& matrix) {
 
 
 int main() {
-    // Existing test cases...
-
-    // New Test Cases:
-
-    // Test Case 1: Nearly Linearly Dependent Vectors
     double epsilon1 = 1e-10;
     vector<vector<double>> A1 = { {1, 1, 1}, {1, 1 + epsilon1, 1}, {1, 1, 1 + epsilon1} };
     cout << "Test Case 1:" << endl;
@@ -192,9 +183,8 @@ int main() {
     printMatrix(result1m.second);
     cout << endl;
 
-    // Test Case 2: Large Matrices with Small Variations
     double epsilon2 = 1e-6;
-    size_t size2 = 10; // Example size
+    size_t size2 = 10; 
     vector<vector<double>> A2(size2, vector<double>(size2, epsilon2));
     for (size_t i = 0; i < size2; ++i) {
         A2[i][i] = 1;
@@ -213,7 +203,7 @@ int main() {
     printMatrix(result2m.second);
     cout << endl;
 
-    // Test Case 3: Matrices with Decreasing Elements
+
     vector<vector<double>> A3 = { {1, 0.1, 0.01}, {0.1, 0.01, 0.001}, {0.01, 0.001, 0.0001} };
     cout << "Test Case 3:" << endl;
     auto result3 = classicalGramSchmidt(A3);
@@ -229,10 +219,10 @@ int main() {
     printMatrix(result3m.second);
     cout << endl;
 
-    // Test Case 4: Random Matrix with a Very Small Element
-    size_t size4 = 5; // Example size for a smaller matrix
+ 
+    size_t size4 = 5; 
     vector<vector<double>> A4(size4, vector<double>(size4, 1));
-    A4[2][3] = 1e-10; // Introducing a very small element
+    A4[2][3] = 1e-10; 
     cout << "Test Case 4:" << endl;
     auto result4 = classicalGramSchmidt(A4);
     cout << "Classical Gram-Schmidt Q Matrix:" << endl;
@@ -247,8 +237,8 @@ int main() {
     printMatrix(result4m.second);
     cout << endl;
 
-    // Test Case 5: High-Dimensional Matrices
-    size_t size5 = 20; // Example size for a high-dimensional matrix
+  
+    size_t size5 = 20; 
     vector<vector<double>> A5(size5, vector<double>(size5, 0));
     for (size_t i = 0; i < size5; ++i) {
         for (size_t j = 0; j < size5; ++j) {
